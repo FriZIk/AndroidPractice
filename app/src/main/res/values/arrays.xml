@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name = 'Passwords'>
+        <item>251100</item>
+        <item>123456</item>
+        <item>qwerty</item>
+    </string-array>
+
+    <string-array name = 'Sites'>
+        <item>https://vseinstrumenti.ru</item>
+        <item>https://chipdip.ru</item>
+        <item>https://citilink.ru</item>
+    </string-array>
+
+    <string-array name = "Logins">
+        <item>Petr</item>
+        <item>Danil</item>
+        <item>Dima</item>
+    </string-array>
+</resources>
