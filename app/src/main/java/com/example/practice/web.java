@@ -17,6 +17,7 @@ public class web extends AppCompatActivity
     private static final String Tag = "Практика";
     private WebView webView;
     private Toolbar toolbar;
+    private String CurrentUrl = "";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -29,40 +30,53 @@ public class web extends AppCompatActivity
         webView = findViewById(R.id.Site);
         webView.setWebViewClient(new MyWebViewClient());
 
-        if (savedInstanceState != null)
-        {
-            webView.restoreState(savedInstanceState);
-        }
         // Принимаем Индекс и по нему вызываем нужный сайт
-        int txtName = getIntent().getIntExtra("Index",-1);
+        int txtName = getIntent().getIntExtra("Index", -1);
         String Sites[] = getResources().getStringArray(R.array.Sites);
-        Log.i(Tag,Sites[txtName]);
+        Log.i(Tag, Sites[txtName]);
         String Logins[] = getResources().getStringArray(R.array.Logins);
         setTitle("DIY helper:" + Logins[txtName]);
-
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl(Sites[txtName]);
+
+        if(savedInstanceState == null)
+        {
+            webView.loadUrl(Sites[txtName]);
+            Log.i(Tag,Sites[txtName]);
+        }
+        else {
+            webView.loadUrl(savedInstanceState.getString("Url"));
+            Log.i(Tag,CurrentUrl);
+        }
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState)
     {
+        outState.putString("Url", webView.getUrl());
         super.onSaveInstanceState(outState);
-        webView.saveState(outState);
     }
 
     @Override
     public void onBackPressed()
     {
-        if(webView.canGoBack())webView.goBack();
+        if (webView.canGoBack()) webView.goBack();
         else super.onBackPressed();
     }
-
-    @Override
-    protected void onPause()
-    {
-        super.onPause();
-        //Intent intent = new Intent(web.this, MainActivity.class);
-        //startActivity(intent);
-    }
 }
+
+/*
+ if (savedInstanceState != null)
+        {
+            webView.restoreState(savedInstanceState);
+        }
+*/
+
+/*
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        super.onRestoreInstanceState(savedInstanceState);
+        CurrentUrl = savedInstanceState.getString("Url");
+
+    }
+ */

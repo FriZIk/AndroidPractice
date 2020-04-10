@@ -34,15 +34,6 @@ public class MainActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onPause()
-    {
-        super.onPause();
-        ErrorText.setVisibility(View.INVISIBLE);
-        LoginText.setText("");
-        PasswordText.setText("");
-    }
-
-    @Override
     protected void onSaveInstanceState(Bundle outState)
     {
         super.onSaveInstanceState(outState);
@@ -55,9 +46,6 @@ public class MainActivity extends AppCompatActivity
     protected void onRestoreInstanceState(Bundle savedInstanceState)
     {
         super.onRestoreInstanceState(savedInstanceState);
-
-
-
         LoginText.setText(savedInstanceState.getString("Login"));
         PasswordText.setText(savedInstanceState.getString("Password"));
     }
@@ -98,6 +86,9 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent(MainActivity.this, web.class);
                 intent.putExtra("Index", IndexOfСoincidence);
                 startActivity(intent);
+                ErrorText.setVisibility(View.INVISIBLE);
+                LoginText.setText("");
+                PasswordText.setText("");
             }
             else
             {
