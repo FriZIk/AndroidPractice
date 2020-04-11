@@ -171,5 +171,5 @@ public void onBackPressed()
 ### 2.3 Видео работы приложения
 На видео демонстрируется работа всех функций программы
 <a href="https://youtu.be/FpwM_aSKoUM" target="_blank"><img src="http://img.youtube.com/vi/ID_ВИДЕОРОЛИКА_НА_YOUTUBE/0.jpg" 
-alt="ALT-ТЕКСТ ИЗОБРАЖЕНИЯ" width="240" height="180" border="10" /></a>
+alt="Демонстрация работы приложения" width="240" height="180" border="10" /></a>
 
